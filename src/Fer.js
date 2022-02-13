@@ -1,3 +1,5 @@
+import React,{useState} from 'react';
+
 
 
 function Fer() {
@@ -9,54 +11,88 @@ function Fer() {
 }
 /* export default Fer; */
 
-function Navup() {
+function Bod() {
+  let inicio=1;
+  const [numeroArray, setnumeroArray]= useState([inicio]);
+  const [numero, setNumero]= useState(inicio);
+
+  function aumentar(){
+     
+     setNumero(numero+1);
+     setnumeroArray([...numeroArray,inicio + numero]);
+  }
+
+  function eliminar(){
+     //const eliminadoArr=[];
+    setNumero(numero-1);
+    //eliminadoArr=numeroArray.splice(-1,1);
+    numeroArray.pop();
+    setnumeroArray(numeroArray);
+ }
+
   return (
-    <div className="Navup">
+    <div className="Bod">
       <ul >
-        <li className="lista"><a href="#" className="enlace">Home</a></li>
+        <li className="lista"><a href="#" className="enlace">Bod</a></li>
         <li className="lista"><a href="#" className="enlace">News</a></li>
-        <li className="lista"><a href="#" className="enlace">Contact</a></li>
-        <li className="lista"><a href="#" className="enlace">About</a></li>
-      </ul>
+        <li className="lista"><a href="#" className="enlace"  onClick={eliminar}>Elimina el ultimo</a></li>
+        <li className="lista"><a href="#" className="enlace" onClick={aumentar}> Agrega número al array {/* {numeroArray} */}</a></li>
+        </ul>
+                {
+                  numeroArray.map((item,index) => {
+                  return <label  className="lista" key={index}><a href="#" className="enlace"> {item}- {index}</a></label>
+                  }
+                  )
+
+                }
+      
+      
     </div>
   );
 }
 
-function Bod() {
+function Navup() {
+  const [numero, setNumero]= useState(0);
+  function aumentar(){
+     console.log("Diste un click");
+     setNumero(numero+1);
+  }
   return (
-    <div className="Bod">
-      <ul >
-        <li className="lista"><a href="#" className="enlace">Home</a></li>
-        <li className="lista"><a href="#" className="enlace">News</a></li>
-        <li className="lista"><a href="#" className="enlace">Contact</a></li>
-        <li className="lista"><a href="#" className="enlace">About</a></li>
-      </ul>
+    <div className="Navup">
+      
+        <div className="navChild uno"><a href="#" className="enlace">NAV</a></div>
+        <div className="navChild dos"><a href="#" className="enlace">News</a></div>
+        <div className="navChild tres"><a href="#" className="enlace">Contact</a></div>
+        <div className="navChild"><h4>Contador: {numero}<button onClick={aumentar}>Aumentar</button></h4></div>
+        <div className="navChild cuatro"><a href="#" className="enlace">About</a></div>
+      
     </div>
   );
 }
+
+
 
 function Bleft() {
   return (
     <div className="Bleft">
-      <ul >
-        <li className="lista"><a href="#" className="enlace">Home</a></li>
-        <li className="lista"><a href="#" className="enlace">News</a></li>
-        <li className="lista"><a href="#" className="enlace">Contact</a></li>
-        <li className="lista"><a href="#" className="enlace">About</a></li>
-      </ul>
+      
+        <a href="#" className="enlace">Bleft</a>
+        <a href="#" className="enlace">News</a>
+        <a href="#" className="enlace">Contact</a>
+        <a href="#" className="enlace">About</a>
+      
     </div>
   );
 }
 
-function Brith() {
+function Bright() {
   return (
-    <div className="Brith">
-      <ul >
-        <li className="lista"><a href="#" className="enlace">Home</a></li>
-        <li className="lista"><a href="#" className="enlace">News</a></li>
-        <li className="lista"><a href="#" className="enlace">Contact</a></li>
-        <li className="lista"><a href="#" className="enlace">About</a></li>
-      </ul>
+    <div className="Bright">
+        <a href="#" className="enlace">Bright</a>
+        <a href="#" className="enlace">News</a>
+        <a href="#" className="enlace">Contact</a>
+        <a href="#" className="enlace">About</a>
+      
     </div>
   );
 }
@@ -64,16 +100,17 @@ function Brith() {
 function Foot() {
   return (
     <div className="Foot">
-      <ul >
-        <li className="lista"><a href="#" className="enlace">Home</a></li>
-        <li className="lista"><a href="#" className="enlace">News</a></li>
-        <li className="lista"><a href="#" className="enlace">Contact</a></li>
-        <li className="lista"><a href="#" className="enlace">About</a></li>
-      </ul>
+      {/* <ul > */}
+        <a href="#" className="Fenlace">Foot </a>|
+        <a href="#" className="Fenlace"> News </a>|
+        <a href="#" className="Fenlace"> Contact </a>|
+        <a href="#" className="Fenlace"> About</a>
+      {/* </ul> */}
     </div>
   );
 }
 
+ 
 
- export  {Fer, Navup, Foot, Bod, Bleft, Brith}; 
+ export  {Fer, Navup, Foot, Bod, Bleft, Bright}; 
 

@@ -1,5 +1,5 @@
 import './App.css';
-import  {Fer, Navup, Foot, Bod, Brith, Bleft} from './Fer';
+import  {Navup, Foot, Bod, Bright, Bleft} from './Fer';
 
 
 function App() {
@@ -9,10 +9,10 @@ function App() {
       <Navup />
       <Bleft />
       <Bod />
-      <Brith />
+      <Bright />
       <Foot />
       {/* <Fer /> */}
-      ...
+      
     </div>
     
   );
